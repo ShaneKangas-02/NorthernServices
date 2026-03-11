@@ -1,180 +1,364 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>NorthernServices | Lawn Care & Property Maintenance</title>
+
+<meta name="description" content="NorthernServices provides lawn care, landscaping, and property maintenance services. Get a free quote today.">
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
 
 <style>
 
-body{
-font-family: Arial;
+*{
 margin:0;
-background:#f5f5f5;
+padding:0;
+box-sizing:border-box;
+font-family:Poppins,sans-serif;
 }
+
+body{
+background:#f5f7fa;
+color:#333;
+}
+
+/* HEADER */
 
 header{
-background:linear-gradient(90deg,#2ecc71,#3498db);
+background:linear-gradient(90deg,#00c853,#00b0ff);
+padding:25px;
 color:white;
-padding:20px;
 text-align:center;
 }
 
+/* NAV */
+
 nav{
-background:#222;
-padding:10px;
+background:#111;
+position:sticky;
+top:0;
+padding:15px;
 text-align:center;
+z-index:1000;
 }
 
 nav a{
 color:white;
 margin:15px;
 text-decoration:none;
-font-weight:bold;
+font-weight:500;
 }
 
-nav a:hover{
-color:#2ecc71;
-}
-
-section{
-padding:60px;
-}
+/* HERO */
 
 .hero{
-background:#2ecc71;
-color:white;
-text-align:center;
-padding:100px 20px;
-}
-
-.services{
+height:85vh;
+background:url("https://images.unsplash.com/photo-1560749003-f4b1e17e2c43");
+background-size:cover;
+background-position:center;
 display:flex;
-gap:20px;
-flex-wrap:wrap;
-}
-
-.card{
-background:white;
-padding:20px;
-border-radius:10px;
-box-shadow:0 5px 10px rgba(0,0,0,0.1);
-flex:1;
-min-width:200px;
-}
-
-footer{
-background:#222;
-color:white;
+flex-direction:column;
+justify-content:center;
+align-items:center;
 text-align:center;
-padding:30px;
+color:white;
+padding:20px;
 }
 
-button{
-background:#3498db;
+.hero h1{
+font-size:55px;
+margin-bottom:20px;
+}
+
+.hero button{
+background:#00b0ff;
+padding:15px 35px;
 border:none;
-padding:12px 20px;
 color:white;
-border-radius:6px;
-font-size:16px;
+font-size:18px;
+border-radius:8px;
 cursor:pointer;
 }
 
-button:hover{
-background:#2980b9;
+/* SECTIONS */
+
+section{
+padding:80px 20px;
+max-width:1100px;
+margin:auto;
+}
+
+/* SERVICES */
+
+.services{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:25px;
+margin-top:40px;
+}
+
+.service{
+background:white;
+padding:30px;
+border-radius:12px;
+box-shadow:0 5px 20px rgba(0,0,0,0.1);
+text-align:center;
+}
+
+/* PRICE CALCULATOR */
+
+.calculator{
+background:white;
+padding:40px;
+border-radius:10px;
+box-shadow:0 5px 20px rgba(0,0,0,0.1);
+max-width:500px;
+margin:auto;
+text-align:center;
+}
+
+.calculator input{
+padding:10px;
+margin-top:15px;
+width:100%;
+}
+
+.price{
+font-size:30px;
+color:#00c853;
+margin-top:20px;
+}
+
+/* GALLERY */
+
+.gallery{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:20px;
+}
+
+.gallery img{
+width:100%;
+border-radius:10px;
+}
+
+/* CONTACT */
+
+form{
+display:grid;
+gap:15px;
+max-width:500px;
+margin:auto;
+}
+
+input,textarea{
+padding:12px;
+border-radius:6px;
+border:1px solid #ccc;
+}
+
+button.submit{
+background:#00c853;
+border:none;
+padding:15px;
+color:white;
+font-size:18px;
+border-radius:6px;
+cursor:pointer;
+}
+
+/* FLOAT BUTTON */
+
+.float-quote{
+position:fixed;
+bottom:25px;
+right:25px;
+background:#00c853;
+color:white;
+padding:18px;
+border-radius:50px;
+font-size:16px;
+cursor:pointer;
+box-shadow:0 5px 15px rgba(0,0,0,0.3);
+}
+
+/* CHAT */
+
+.chat{
+position:fixed;
+bottom:100px;
+right:25px;
+background:white;
+width:250px;
+border-radius:10px;
+box-shadow:0 5px 20px rgba(0,0,0,0.2);
+padding:15px;
+display:none;
+}
+
+.chat input{
+width:100%;
+margin-top:10px;
+padding:8px;
+}
+
+footer{
+background:#111;
+color:white;
+text-align:center;
+padding:40px;
+margin-top:40px;
 }
 
 </style>
+
 </head>
 
 <body>
 
 <header>
+
 <h1>NorthernServices</h1>
 <p>Lawn Care & Property Maintenance</p>
+
 </header>
 
 <nav>
-<a href="#home">Home</a>
-<a href="#about">About</a>
+
 <a href="#services">Services</a>
-<a href="#contracts">Contracts</a>
+<a href="#pricing">Estimate</a>
+<a href="#gallery">Gallery</a>
 <a href="#contact">Contact</a>
+
 </nav>
 
-<section class="hero" id="home">
-<h2>Professional Lawn Care & Property Maintenance</h2>
-<p>Reliable. Affordable. Local.</p>
-<button onclick="location.href='#contact'">Get a Quote</button>
-</section>
+<section class="hero">
 
-<section id="about">
-<h2>About Us</h2>
-<p>
-NorthernServices provides reliable lawn care and property maintenance services.
-We focus on keeping homes and properties looking clean, professional, and well maintained.
-</p>
+<h1>Premium Lawn Care Services</h1>
+
+<p>Reliable property maintenance for homes and businesses</p>
+
+<button onclick="document.getElementById('contact').scrollIntoView()">
+Get Free Quote
+</button>
+
 </section>
 
 <section id="services">
-<h2>Our Services</h2>
+
+<h2>Services</h2>
 
 <div class="services">
 
-<div class="card">
+<div class="service">
 <h3>Lawn Mowing</h3>
-<p>Professional grass cutting and trimming.</p>
+<p>Professional weekly mowing.</p>
 </div>
 
-<div class="card">
+<div class="service">
+<h3>Yard Cleanup</h3>
+<p>Leaf and debris removal.</p>
+</div>
+
+<div class="service">
 <h3>Property Maintenance</h3>
-<p>General outdoor property upkeep.</p>
+<p>Outdoor upkeep services.</p>
 </div>
 
-<div class="card">
-<h3>Seasonal Cleanup</h3>
-<p>Leaf removal, yard cleanup, and debris removal.</p>
-</div>
-
-<div class="card">
+<div class="service">
 <h3>Landscaping</h3>
-<p>Basic landscaping and property improvement.</p>
+<p>Basic landscaping improvements.</p>
 </div>
 
 </div>
+
 </section>
 
-<section id="contracts">
-<h2>Service Contracts</h2>
+<section id="pricing">
 
-<p>
-We offer recurring maintenance contracts for homeowners and businesses.
-</p>
+<h2>Instant Price Estimate</h2>
 
-<ul>
-<li>Weekly Lawn Maintenance</li>
-<li>Monthly Property Maintenance</li>
-<li>Seasonal Cleanup Packages</li>
-<li>Custom Contracts Available</li>
-</ul>
+<div class="calculator">
+
+<label>Property Size (sq ft)</label>
+<input id="size" type="number" placeholder="Example: 5000">
+
+<button onclick="calculate()">Estimate Price</button>
+
+<div class="price" id="price">$0</div>
+
+</div>
+
+</section>
+
+<section id="gallery">
+
+<h2>Our Work</h2>
+
+<div class="gallery">
+
+<img src="https://images.unsplash.com/photo-1501004318641-b39e6451bec6">
+<img src="https://images.unsplash.com/photo-1592838064575-70ed626d3a0e">
+<img src="https://images.unsplash.com/photo-1589927986089-35812388d1f4">
+
+</div>
 
 </section>
 
 <section id="contact">
-<h2>Contact NorthernServices</h2>
 
-<p><b>Phone:</b> YOUR PHONE HERE</p>
-<p><b>Email:</b> YOUR EMAIL HERE</p>
+<h2>Request A Quote</h2>
 
-<p><b>Social Media:</b></p>
-<p>
-Facebook | Instagram | Twitter
-</p>
+<form action="https://formspree.io/f/YOURFORMID" method="POST">
+
+<input type="text" name="name" placeholder="Name">
+
+<input type="email" name="email" placeholder="Email">
+
+<textarea name="message" placeholder="What service do you need?"></textarea>
+
+<button class="submit">Send Request</button>
+
+</form>
 
 </section>
 
 <footer>
+
 <p>© 2026 NorthernServices</p>
+
 </footer>
+
+<div class="float-quote" onclick="document.getElementById('contact').scrollIntoView()">
+Get Quote
+</div>
+
+<div class="chat" id="chat">
+
+<b>Chat With Us</b>
+
+<p>How can we help?</p>
+
+<input placeholder="Type message...">
+
+</div>
+
+<script>
+
+function calculate(){
+
+let size = document.getElementById("size").value
+
+let price = size * 0.02
+
+document.getElementById("price").innerText = "$" + price
+
+}
+
+</script>
 
 </body>
 </html>
